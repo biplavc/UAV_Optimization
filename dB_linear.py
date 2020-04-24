@@ -9,7 +9,7 @@ db = 20 * log10(A)
 
 ''' 
 import control
-import parameters
+# import parameters
 
 def from_dB(db_val):
     linear_val = control.db2mag(db_val)
