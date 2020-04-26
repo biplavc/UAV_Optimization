@@ -8,7 +8,7 @@ from parameters import *
 def create_graph(coordinates):
     A = np.array(coordinates)
     B = squareform(pdist(A))
-    print("B=", B)
+    # print("B=", B)
     G = nx.from_numpy_matrix(B)
     nx.draw(G, with_edges=False)
     plt.show()
