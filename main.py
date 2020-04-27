@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import random
 from create_graph import *
-
+from path_loss_probability import *
 
 from parameters import *
 
@@ -39,4 +39,6 @@ def initialize_area():
 
 if __name__ == '__main__':
     initialize_area()
+    # print(path_loss_probability_LOS(1,20))
+    # print(SNR_th)
 

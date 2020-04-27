@@ -19,8 +19,9 @@ n_L = 3 # LOS System loss in dB, https://arxiv.org/pdf/1704.04813.pdf page 21
 n_N = 23 # NLOS system loss in dB  " do "
 
 
-p_L = 0.5 # LOS link probability , REMAINING
-p_N = 1 - p_L # NLOS link probability
+a = 9.61 # environmental parameters for path loss, from https://arxiv.org/pdf/1702.08395.pdf
+b = 0.16 
+# LOS link probability , will be calculated from path_loss_probability.py
 
 Pt = 0.5 # Drone transmit power in Watt, https://arxiv.org/pdf/1704.04813.pdf  page 21
 
@@ -28,6 +29,6 @@ BW = 10**6 # 1 MHz,  https://arxiv.org/pdf/1704.04813.pdf  page 21
 
 Pn = from_dBm(-170) * BW # Watt, https://arxiv.org/pdf/1704.04813.pdf  page 21
 
-# SNR_th = # REMAINING SNR threshold
+SNR_th = from_dB(10) # https://arxiv.org/pdf/1801.05000.pdf
 
-R = 100 # REMAINING, edge from a vertex a to b exist if distance between a and b < R
+R = 100 # REMAINING, edge from a vertex a to b exist if distance between i and j < R
