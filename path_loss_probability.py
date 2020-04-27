@@ -5,7 +5,6 @@ import math
 
 def path_loss_probability_LOS(h, r):
     theta_rad = math.atan(h/r) # radians
-    theta_deg = 180*theta_rad/(math.pi)
-
+    theta_deg = 180*theta_rad/(math.pi) # degrees
     p_LOS = 1/(1+a*(math.exp(-b*(theta_deg - a))))
     return p_LOS
