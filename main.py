@@ -23,18 +23,20 @@ def initialize_area():
     plt.ylabel("Y-axis (m)")
     plt.title('Simulation Area')
     print(np.shape(coordinates))
-
-    labels = ["{0}".format(i) for i in range(len(coordinates))]
-    for label, x, y in zip(labels, x_vals,y_vals):
-        plt.annotate(
-        label,
-        xy=(x, y), xytext=(-20, 20),
-        textcoords='offset points', ha='right', va='bottom',
-        bbox=dict(boxstyle='round,pad=0.5', fc='yellow', alpha=0.5),
-        arrowprops=dict(arrowstyle = '-',connectionstyle='arc3,rad=0'))
     plt.show()
+    
 
-    create_graph(coordinates) 
+    # labels = ["{0}".format(i) for i in range(len(coordinates))]
+    # for label, x, y in zip(labels, x_vals,y_vals):
+    #     plt.annotate(
+    #     label,
+    #     xy=(x, y), xytext=(-20, 20),
+    #     textcoords='offset points', ha='right', va='bottom',
+    #     bbox=dict(boxstyle='round,pad=0.5', fc='yellow', alpha=0.5),
+    #     arrowprops=dict(arrowstyle = '-',connectionstyle='arc3,rad=0'))
+    # plt.show()
+
+    create_graph(coordinates, x_vals, y_vals) 
 
 
 if __name__ == '__main__':
