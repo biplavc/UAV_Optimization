@@ -22,7 +22,7 @@ def initialize_area():
     plt.xlabel("X-axis (m)")
     plt.ylabel("Y-axis (m)")
     plt.title('Simulation Area')
-
+    print(np.shape(coordinates))
 
     labels = ["{0}".format(i) for i in range(len(coordinates))]
     for label, x, y in zip(labels, x_vals,y_vals):

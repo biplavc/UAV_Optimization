@@ -10,7 +10,8 @@ def create_graph(coordinates):
     B = squareform(pdist(A))
     # print("B=", B)
     G = nx.from_numpy_matrix(B)
-    nx.draw(G, with_edges=False)
+    nx.draw_networkx(G, with_edges=False)
+    plt.title("Original Graph")
     plt.show()
     for i in range(I):
         for j in range(I):
@@ -23,7 +24,8 @@ def create_graph(coordinates):
 
     
 def analyze_graph(G):
-    nx.draw(G, with_labels = True)
+    nx.draw_networkx(G, with_labels = True)
+    plt.title("Final Graph")
     plt.show()
     print("nodes=", G.number_of_nodes(), "edges=", G.number_of_edges())
     
