@@ -1,7 +1,9 @@
 # create_graph(coordinates)
 from scipy.spatial.distance import pdist, squareform
-import networkx as nx
-from networkx.algorithms.approximation import vertex_cover
+from networkx import *
+from networkx.algorithms.approximation import min_weighted_dominating_set
+# from networkx.algorithms.approximation import dominating_set
+
 import matplotlib.pyplot as plt
 import numpy as np
 from parameters import *
@@ -26,10 +28,10 @@ def create_graph(coordinates, x_vals, y_vals):
                     G.remove_edge(i,j)
 
 
-    analyze_graph(G, position_dict) # function below
+    analyze_graph(G, position_dict, x_vals, y_vals) # function below
 
     
-def analyze_graph(G, position_dict):
+def analyze_graph(G, position_dict, x_vals, y_vals):
     # keys = [i for i in range(I)]
     nx.draw_networkx(G, with_labels = True, pos = position_dict)
     plt.title("Final Graph")
@@ -39,10 +41,37 @@ def analyze_graph(G, position_dict):
     # for i in range(I):
     #     for j in range(I):
             # print( "i=",i,"j=",j,G.get_edge_data(i,j))
-    min_vertex_cover(G)
+    get_dominating_set(G, x_vals, y_vals)
 
-def min_vertex_cover(G):
-    vertices = vertex_cover.min_weighted_vertex_cover(G, weight = 'weight')
+def get_dominating_set(G, x_vals, y_vals):
+    vertices_1 = min_weighted_dominating_set(G)
+    vertices_2 = dominating_set(G)
 
-    print("no of chosen vertices are ", len(vertices), "and they are ", vertices)
+    print("no of chosen vertices with min_weighted_dominating_set are ", len(vertices_1), "and they are ", vertices_1)
+    print("no of chosen vertices with dominating_set are ", len(vertices_2), "and they are ", vertices_2)
     # print("weight = ", G.get_edge_data(2,60))
+    compare_graph(vertices_1, vertices_2 , x_vals, y_vals)
+
+def compare_graph(vertices_1, vertices_2 , x_vals, y_vals):
+
+    x_new_1 = [x_vals[i] for i in vertices_1]
+    y_new_1 = [y_vals[i] for i in vertices_1]
+
+    x_new_2 = [x_vals[i] for i in vertices_2]
+    y_new_2 = [y_vals[i] for i in vertices_2]
+
+
+    a = plt.scatter( x_vals, y_vals, label = 'All users')
+    b = plt.scatter( x_new_1, y_new_1, label = 'Selected Users')
+    plt.title("Result of min_weighted_dominating_set")
+    plt.legend(loc='best', bbox_to_anchor=(0.5, -0.05),
+          fancybox=True, shadow=False, ncol=4)
+    plt.show()
+
+    a = plt.scatter( x_vals, y_vals, label = 'All users')
+    b = plt.scatter( x_new_2, y_new_2, label = 'Selected Users')
+    plt.title("Result of dominating_set")
+    plt.legend(loc='best', bbox_to_anchor=(0.5, -0.05),
+        fancybox=True, shadow=False, ncol=4)
+    plt.show()
+
