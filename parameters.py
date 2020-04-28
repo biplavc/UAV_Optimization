@@ -31,4 +31,4 @@ Pn = from_dBm(-170) * BW # Watt, https://arxiv.org/pdf/1704.04813.pdf  page 21
 
 SNR_th = from_dB(10) # https://arxiv.org/pdf/1801.05000.pdf
 
-R = 300 # REMAINING, edge from a vertex a to b exist if distance between i and j < R
+R = 200 # REMAINING, edge from a vertex a to b exist if distance between i and j < R

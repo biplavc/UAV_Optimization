@@ -39,7 +39,7 @@ def initialize_area():
 
 
 if __name__ == '__main__':
-    initialize_area()
-    # print(path_loss_probability_LOS(1,20))
+    # initialize_area() 
+    print(path_loss_probability_LOS(100,300)) # format h/r
     # print(SNR_th)
 
