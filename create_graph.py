@@ -16,10 +16,13 @@ def create_graph(coordinates, x_vals, y_vals):
     position_dict = {}
     for i in range(I):
         position_dict[i] = [x_vals[i], y_vals[i]]
-    # nx.draw_networkx(G, with_labels = True, pos = position_dict)
+
+    # remove edges longer than R
+
+    nx.draw_networkx(G, with_labels = True, pos = position_dict)
     # plt.title("Original Graph")
-    plt.show()
-    # print("weight = ", G.get_edge_data(2,60))
+    # plt.show()
+    print("weight = ", G.get_edge_data(2,60))
     for i in range(I):
         for j in range(I):
             if G.get_edge_data(i,j) !=None:
@@ -70,8 +73,9 @@ def compare_graph(vertices_1, vertices_2 , x_vals, y_vals):
 
     a = plt.scatter( x_vals, y_vals, label = 'All users')
     b = plt.scatter( x_new_2, y_new_2, label = 'Selected Users')
-    plt.title("Result of dominating_set")
-    plt.legend(loc='best', bbox_to_anchor=(0.5, -0.05),
-        fancybox=True, shadow=False, ncol=4)
+    plt.xlabel('X Coordinates', fontsize = 20)
+    plt.ylabel('Y Coordinates', fontsize = 20)
+    plt.title("Result of dominating_set", fontsize = 20)
+    plt.legend(loc='best', bbox_to_anchor=(0.5, -0.05), shadow=False, ncol=4, fontsize = 20)
     plt.show()
 
