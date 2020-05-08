@@ -33,13 +33,13 @@ def initialize_area():
         textcoords='offset points', ha='right', va='bottom',
         bbox=dict(boxstyle='round,pad=0.5', fc='yellow', alpha=0.5),
         arrowprops=dict(arrowstyle = '-',connectionstyle='arc3,rad=0'))
-    plt.show()
+    # plt.show()
 
     create_graph(coordinates, x_vals, y_vals) 
 
 
 if __name__ == '__main__':
-    # initialize_area() 
-    print(path_loss_probability_LOS(100,300)) # format h/r
+    initialize_area() 
+    # print(path_loss_probability_LOS(100,300)) # format h/r
     # print(SNR_th)
 

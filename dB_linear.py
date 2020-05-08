@@ -12,8 +12,7 @@ import control
 # import parameters
 
 def from_dB(db_val):
-    # linear_val = control.db2mag(db_val)
-    return (10^(db_val/10))
+    return (10**(db_val*0.1))
 
 
 def from_dBm(dbm_val):
