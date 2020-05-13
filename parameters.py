@@ -10,7 +10,8 @@ from dB_linear import *
 L = 1000 # 1 km, length of whole region in meters
 B = 1000 # 1 km, breadth of whole region in meters
 
-I = 100  # number of users
+I = 800  # number of users
+
 
 fc = 2 * 10**9       # carrier frequency. 2 GHz, https://arxiv.org/pdf/1704.04813.pdf page 21
 c = 3 * 10**8         # speed of light
