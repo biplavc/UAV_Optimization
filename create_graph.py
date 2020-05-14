@@ -12,7 +12,7 @@ import numpy as np
 from parameters import *
 import random
 
-def create_graph(coordinates, x_vals, y_vals):
+def create_graph(coordinates, x_vals, y_vals, I):
     A = np.array(coordinates)
     B = squareform(pdist(A, metric='euclidean'))
     # print("B=", B)
@@ -34,19 +34,20 @@ def create_graph(coordinates, x_vals, y_vals):
                     # print("i=",i, "j=",j)
                     G.remove_edge(i,j)
 
-    find_degree(G)
-    analyze_graph(G, position_dict, x_vals, y_vals) # function below
+    # find_degree(G, I)
+    ds_val = analyze_graph(G, position_dict, x_vals, y_vals) # function below
 
     # create a fresh copy of the graph for the random selection
     H = G.__class__()
     H.add_nodes_from(G)
     H.add_edges_from(G.edges)
-    random_selection_removal(H)
+    random_val = random_selection_removal(H)
 
     J = G.__class__()
     J.add_nodes_from(G)
     J.add_edges_from(G.edges)
-    custom_mds(J)
+    custom_val = custom_mds(J)
+    return custom_val, random_val, ds_val
 
 
     
@@ -55,21 +56,22 @@ def analyze_graph(G, position_dict, x_vals, y_vals):
     # nx.draw_networkx(G, with_labels = True, pos = position_dict) # graph with edge's existence conditioned on node's distance
     # plt.title("Final Graph")
     # plt.show()
-    print("nodes=", G.number_of_nodes(), "edges=", G.number_of_edges())
+    # print("nodes=", G.number_of_nodes(), "edges=", G.number_of_edges())
     
     # for i in range(I):
     #     for j in range(I):
             # print( "i=",i,"j=",j,G.get_edge_data(i,j))
-    get_dominating_set(G, x_vals, y_vals)
+    ds_val = get_dominating_set(G, x_vals, y_vals)
+    return ds_val
 
 def get_dominating_set(G, x_vals, y_vals):
     vertices_1 = min_weighted_dominating_set(G)
     vertices_2 = dominating_set(G)
-
-    print("no of chosen vertices with min_weighted_dominating_set are ", len(vertices_1)) # "and they are ", vertices_1)
-    print("no of chosen vertices with dominating_set are ", len(vertices_2)) # "and they are ", vertices_2)
+    # print("no of chosen vertices with min_weighted_dominating_set are ", len(vertices_1)) # "and they are ", vertices_1)
+    # print("no of chosen vertices with dominating_set are ", len(vertices_2)) # "and they are ", vertices_2)
     # print("weight = ", G.get_edge_data(2,60))
     # compare_graph(vertices_1, vertices_2 , x_vals, y_vals)
+    return len(vertices_2)
 
 '''
 def compare_graph(vertices_1, vertices_2 , x_vals, y_vals):
@@ -122,7 +124,8 @@ def random_selection_removal(G): # receiving H but using G here
                 # neigh = G.neighbors(selected_node)
                 # print("new n = ", G.number_of_nodes())
 
-    print("random selection with removal has ", len(selected_nodes_list), " nodes") # and they are ", selected_nodes_list)
+    # print("random selection with removal has ", len(selected_nodes_list), " nodes") # and they are ", selected_nodes_list)
+    return len(selected_nodes_list)
 
 def custom_mds(G):
     selected_nodes_list = []
@@ -147,10 +150,11 @@ def custom_mds(G):
                 # neigh = G.neighbors(selected_node)
                 # print("new n = ", G.number_of_nodes())
 
-    print('custom MDS has ', len(selected_nodes_list), ' nodes') # and they are ', selected_nodes_list)
+    # print('custom MDS has ', len(selected_nodes_list), ' nodes') # and they are ', selected_nodes_list)
+    return len(selected_nodes_list)
 
-
-def find_degree(G):
+'''
+def find_degree(G, I):
     # print('G.degree() = ',G.degree())
     degree_sequence = sorted([d for n, d in G.degree()], reverse=True)  # degree sequence
 
@@ -176,3 +180,5 @@ def find_degree(G):
     # nx.draw_networkx_edges(G, pos, alpha=0.4)
 
     plt.show()
+
+'''
