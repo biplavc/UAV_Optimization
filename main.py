@@ -17,6 +17,8 @@ def initialize_area():
 
     coordinates = list(zip(x_vals,y_vals,z_vals))
     # plt.scatter(*zip(*coordinates))
+
+    '''
     plt.scatter(x_vals, y_vals)
     # print(coordinates)
     plt.xlabel("X-axis (m)")
@@ -35,6 +37,8 @@ def initialize_area():
         arrowprops=dict(arrowstyle = '-',connectionstyle='arc3,rad=0'))
     # plt.show()
 
+
+    '''
     create_graph(coordinates, x_vals, y_vals) 
 
 

@@ -10,7 +10,7 @@ from dB_linear import *
 L = 1000 # 1 km, length of whole region in meters
 B = 1000 # 1 km, breadth of whole region in meters
 
-I = 800  # number of users
+I = 500  # number of users
 
 
 fc = 2 * 10**9       # carrier frequency. 2 GHz, https://arxiv.org/pdf/1704.04813.pdf page 21
@@ -32,4 +32,4 @@ Pn = from_dBm(-170) * BW # Watt, https://arxiv.org/pdf/1704.04813.pdf  page 21
 
 SNR_th = from_dB(10) # https://arxiv.org/pdf/1801.05000.pdf
 
-R = 200 # REMAINING, edge from a vertex a to b exist if distance between i and j < R
+R = 50 # REMAINING, edge from a vertex a to b exist if distance between i and j < R
