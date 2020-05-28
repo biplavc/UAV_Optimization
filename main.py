@@ -16,7 +16,7 @@ def initialize_area():
         y_vals = random.sample(range(1, B-1), I)
         z_vals = [0]*I
 
-        coordinates = list(zip(x_vals,y_vals,z_vals))
+        user_coordinates = list(zip(x_vals,y_vals,z_vals))
         # plt.scatter(*zip(*coordinates))
 
         '''
@@ -40,7 +40,7 @@ def initialize_area():
 
 
         '''
-        custom_val, random_val, ds_val = create_graph(coordinates, x_vals, y_vals, I) 
+        custom_val, random_val, ds_val = create_graph(user_coordinates, x_vals, y_vals, I) 
 
         # drones_DS = np.append(drones_DS, ds_val)
         # drones_Random = np.append(drones_Random, random_val)
@@ -72,7 +72,7 @@ def initialize_area():
 
 
 if __name__ == '__main__':
-    users = np.array([20, 25, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800])
+    users = np.array([100])
     drones_DS = []
     drones_Random = []
     drones_CustomMDS = []
