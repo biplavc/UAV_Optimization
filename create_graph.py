@@ -149,7 +149,6 @@ def custom_mds(G):
             for i in neigh:
                 G.remove_node(i)
                 # print("node ", i, " removed")
-                # neigh = G.neighbors(selected_node)
                 # print("new n = ", G.number_of_nodes())
 
     # print('custom MDS has ', len(selected_nodes_list), ' nodes') # and they are ', selected_nodes_list)

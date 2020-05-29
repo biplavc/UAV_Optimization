@@ -42,66 +42,15 @@ def initialize_area():
         # plt.ylabel("Y-axis (m)")
         # plt.legend(loc='best', bbox_to_anchor=(0.5, -0.05), fancybox=True, shadow=False, ncol=4)
 
-        create_graph_1(user_coordinates, grid_coordinates) 
+        drones_needed_random, drones_needed_MDS = create_graph_1(user_coordinates, grid_coordinates) 
+        print("drones_needed_random = ", drones_needed_random, "drones_needed_MDS = ", drones_needed_MDS)
 
-        # print(x_points, y_points)
+        drones_Random.append(drones_needed_random)
+        drones_CustomMDS.append(drones_needed_MDS)
 
-        '''
-        ax1.scatter(grid_pos) # , drones_DS, 'm', marker='D', label = 'default DS')
-        # ax1.plot(users, drones_Random, 'k', marker='+', label = 'Random with removal')
-        # ax1.plot(users, drones_CustomMDS, 'g', marker='^', label = 'Custom MDS')
-
-        # legend = ax1.legend(loc='best', shadow=False, fontsize='large')
-        # # plt.xlabel('Simulation Time')
-        # plt.xlabel('Number of ground users')
-        # plt.ylabel('Number of drones needed')
-        # # ax1.set_xticks(T)
-        # legend.get_frame().set_facecolor('C0')
-        '''
-        # ax1.scatter(x_points, y_points)
-        # plt.grid()
-        # plt.show()
-
-        # plt.scatter(*zip(*coordinates))
-
-        '''
-        plt.scatter(x_vals, y_vals)
-        # print(coordinates)
-        plt.xlabel("X-axis (m)")
-        plt.ylabel("Y-axis (m)")
-        plt.title('Simulation Area')
-        print(np.shape(coordinates))
-        
-
-        labels = ["{0}".format(i) for i in range(len(coordinates))]
-        for label, x, y in zip(labels, x_vals,y_vals):
-            plt.annotate(
-            label,
-            xy=(x, y), xytext=(-20, 20),
-            textcoords='offset points', ha='right', va='bottom',
-            bbox=dict(boxstyle='round,pad=0.5', fc='yellow', alpha=0.5),
-            arrowprops=dict(arrowstyle = '-',connectionstyle='arc3,rad=0'))
-        # plt.show()
-
-
-        
-        custom_val, random_val, ds_val = create_graph(user_coordinates, x_vals, y_vals, I) 
-
-        # drones_DS = np.append(drones_DS, ds_val)
-        # drones_Random = np.append(drones_Random, random_val)
-        # drones_CustomMDS = np.append(drones_CustomMDS, custom_val)
-        drones_DS.append(ds_val)
-        drones_Random.append(random_val)
-        drones_CustomMDS.append(custom_val)
-
-
-    print('drones_DS = ', drones_DS)
-    print('drones_Random = ', drones_Random)
-    print('drones_CustomMDS = ', drones_CustomMDS)
 
     fig, ax1 = plt.subplots()
 
-    ax1.plot(users, drones_DS, 'm', marker='D', label = 'default DS')
     ax1.plot(users, drones_Random, 'k', marker='+', label = 'Random with removal')
     ax1.plot(users, drones_CustomMDS, 'g', marker='^', label = 'Custom MDS')
 
@@ -115,12 +64,12 @@ def initialize_area():
     plt.grid(True)
     
 
-    '''
     plt.show()
 
 if __name__ == '__main__':
-    users = np.array([10])
-    drones_DS = []
+
+    users = [50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900]
+    print("users = ", users)
     drones_Random = []
     drones_CustomMDS = []
     initialize_area() 
