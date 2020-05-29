@@ -1,4 +1,6 @@
 # create_graph(coordinates)
+## based on the old idea where drones can only be deployed over users
+
 from scipy.spatial.distance import pdist, squareform
 from networkx import *
 from networkx.algorithms.approximation import min_weighted_dominating_set
