@@ -94,10 +94,9 @@ def create_graph_1(user_coordinates, grid_coordinates):
 
     # plt.xlabel("X-axis (m)")
     # plt.ylabel("Y-axis (m)")
-    # plt.legend(loc='best', bbox_to_anchor=(0.5, -0.05), fancybox=True, shadow=False, ncol=4)
     # nx.draw_networkx_edge_labels(G,position_dict) #,edge_labels=labels)
 
-    # nx.draw_networkx(G, pos = position_dict, node_color=color_map, with_labels=True)
+    # nx.draw_networkx(G, pos = position_dict, node_color=color_map) #, with_labels=True)
     # plt.title("Coverage Plot for '{0}' users with R='{1}'".format(len(user_coordinates), R))    
     # plt.grid()
 

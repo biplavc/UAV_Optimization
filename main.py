@@ -23,8 +23,8 @@ def initialize_area():
 
         user_coordinates = list(zip(x_vals,y_vals))
 
-        x_grid_nos =(L/R) + 1 # number of different values the grid takes for x axis
-        y_grid_nos = (B/R) + 1 # number of different values the grid takes for y axis
+        x_grid_nos =(L/r) + 1 # number of different values the grid takes for x axis
+        y_grid_nos = (B/r) + 1 # number of different values the grid takes for y axis
 
         grid_x = np.linspace(0, L, num = x_grid_nos) # generate evenly spaced x positions for grid
         grid_y = np.linspace(0, B, num = y_grid_nos) # generate evenly spaced y positions for grid
@@ -49,6 +49,7 @@ def initialize_area():
         drones_CustomMDS.append(drones_needed_MDS)
 
 
+    # plot results
     fig, ax1 = plt.subplots()
 
     ax1.plot(users, drones_Random, 'k', marker='+', label = 'Random with removal')
@@ -68,7 +69,7 @@ def initialize_area():
 
 if __name__ == '__main__':
 
-    users = [50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900]
+    users = [50, 150, 250 ,  350, 450, 550,  650,  750,  850]
     print("users = ", users)
     drones_Random = []
     drones_CustomMDS = []
