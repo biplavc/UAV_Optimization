@@ -43,13 +43,14 @@ def initialize_area():
         # plt.legend(loc='best', bbox_to_anchor=(0.5, -0.05), fancybox=True, shadow=False, ncol=4)
 
         drones_needed_random, drones_needed_MDS = create_graph_1(user_coordinates, grid_coordinates) 
-        print("drones_needed_random = ", drones_needed_random, "drones_needed_MDS = ", drones_needed_MDS)
+        # print("drones_needed_random = ", drones_needed_random, "drones_needed_MDS = ", drones_needed_MDS)
 
         drones_Random.append(drones_needed_random)
         drones_CustomMDS.append(drones_needed_MDS)
 
 
     # plot results
+
     fig, ax1 = plt.subplots()
 
     ax1.plot(users, drones_Random, 'k', marker='+', label = 'Random with removal')
@@ -63,13 +64,13 @@ def initialize_area():
     legend.get_frame().set_facecolor('C0')
 
     plt.grid(True)
-    
+
 
     plt.show()
 
 if __name__ == '__main__':
 
-    users = [50, 150, 250 ,  350, 450, 550,  650,  750,  850]
+    users = [100, 150, 250 ,  350, 450, 550,  650,  750,  850]
     print("users = ", users)
     drones_Random = []
     drones_CustomMDS = []
